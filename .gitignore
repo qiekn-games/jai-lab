@@ -1,0 +1,8 @@
+/examples/
+/how_to/
+.build/
+
+*.exe
+*.pdb
+
+README.txt
