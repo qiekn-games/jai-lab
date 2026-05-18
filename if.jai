@@ -1,7 +1,6 @@
 #import "Basic";
 
-main :: () {
-   // if
+test_if_else :: () {
    a:= 1;
    b:= 2;
 
@@ -10,39 +9,66 @@ main :: () {
    else
       print("They're not equal!\n");
 
-   b = 1;
+}
+
+test_if_then :: () {
+   a := 2;
+   b := 1;
    if a == b then print("Now they're equal!\n");
+}
 
-   // else if
-   grade := 66;
-   if grade >= 97 {
-      print("Your grade is an A+\n");
-   } else if grade >= 90 {
-      print("Your grade is an A\n");
-   } else if grade >= 80 {
-      print("Your grade is a B\n");
-   } else if grade >= 70 {
-      print("Your grade is a C\n");
-   } else if grade >= 60 {
-      print("Your grade is a D\n");
+test_else_if :: () {
+   game := "enigmash";
+
+   if game == "the_witness" {
+      print("Check more games of Jonathon Blow\n");
+   } else if game == "enigmash" {
+      print("Check more games of Jack Lance\n");
    } else {
-      print("You grade is a F\n");
+      print("Unknown");
    }
 
-   // compile time #if
-   CONSTANT :: 3;
-   #if CONSTANT == 0 {
+   // you can use `case` (jai-style switch) instead. ses: ./case.jai
+   // if game == {
+   //    case "the_witness";
+   //       print("Check more games of Jonathon Blow\n");
+   //
+   //    case "enigmash";
+   //       print("Check more games of Jack Lance\n");
+   //
+   //    case;
+   //       print("Unknown\n");
+   // }
+}
 
-   } else #if CONSTANT == 1 {
-
-   } else #if CONSTANT == 2 {
-
+test_compile_time_if :: () {
+   // Branches that do not match are not compiled at all.
+   #if OS == .WINDOWS {
+      print("Windows\n");
+   } else #if OS == .LINUX {
+      print("Linux\n");
+   } else #if OS == .MACOS {
+      print("macOS\n");
+   } else {
+      print("Unknown OS\n");
    }
+}
 
+test_ifx :: () {
    // ifx Ternary Operator Statement
-   x := 0;
-   y := 100;
-   z := ifx x > y 10 else 1000;
-   w := ifx x > y then 10 else 1000;
-   print("z = %, w = %\n", z, w);
+   x, y := 0, 100;
+   value_1 := ifx x > y 10 else 1000;
+
+   // You can use `then` after the condition, but it is optional.
+   value_2 := ifx x > y then 10 else 1000;
+
+   print("value_1 = %\nvalue_2 = %\n", value_1, value_2);
+}
+
+main :: () {
+   test_if_else();
+   test_if_then();
+   test_else_if();
+   test_compile_time_if();
+   test_ifx();
 }
