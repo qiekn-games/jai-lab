@@ -5,6 +5,7 @@
 //                         String Opeartions                          //
 ////////////////////////////////////////////////////////////////////////
 
+/*
 // string comparing functions
 equal :: (a: string, b: string) -> bool;
 compare :: (a: string, b: string) -> int;
@@ -28,6 +29,7 @@ parse_token :: (line: *string) -> string, bool;
 // c string manipulation functions
 to_c_string :: (str: string) -> *u8; // NOTE: This function heap allocates memory
 c_style_strlen :: (ptr: *u8) -> int;
+*/
 
 ////////////////////////////////////////////////////////////////////////
 //                               Basics                               //
@@ -40,7 +42,8 @@ c_style_strlen :: (ptr: *u8) -> int;
 
 single_Line_string := "This is a single line string";
 
-multi_line_string := #string END_STRING
+multi_line_string := #string
+END_STRING
 This
 is
 a
